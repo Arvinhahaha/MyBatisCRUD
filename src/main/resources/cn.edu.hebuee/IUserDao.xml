@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hebuee.dao.IUserDao">
+    <select id="findAll" resultType="cn.edu.hebuee.domain.User">
+        select * from user ;
+    </select>
+
+    <insert id="saveUser" parameterType="cn.edu.hebuee.domain.User">
+        INSERT INTO user(username,birthday,sex,address) value (#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <update id="updateUser" parameterType="cn.edu.hebuee.domain.User">
+        UPDATE user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id = #{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="java.lang.String">
+        delete from user where id = #{id};
+    </delete>
+
+</mapper>
